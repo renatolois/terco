@@ -434,6 +434,8 @@ function pecaAnterior() {
 
 function toggleDarkMode() {
   document.body.classList.toggle('dark');
+  const escuro = document.body.classList.contains('dark');
+  localStorage.setItem("tercoTema", escuro ? "dark" : "light");
 }
 
 function pauseToggle() {
@@ -527,6 +529,13 @@ function trocarFonteTexto(nome) {
 }
 
 function restaurarPreferencias() {
+  const temaSalvo = localStorage.getItem("tercoTema");
+  if (temaSalvo === "light") {
+    document.body.classList.remove("dark");
+  } else if (temaSalvo === "dark") {
+    document.body.classList.add("dark");
+  }
+
   const fonteGeralSalva = localStorage.getItem("tercoFonteGeral");
   if (fonteGeralSalva) {
     document.getElementById("font-geral-select").value = fonteGeralSalva;
