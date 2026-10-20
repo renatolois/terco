@@ -20,7 +20,10 @@ Você pode iniciar a canção "Ave Maria" apertando o ícone de música na barra
   Atenção, em celulares ou dispositivos de menor largura, a barra inferior pode não ser completamente visível.
   Se for o caso, arraste a barra inferior para a direita, verifique se o site nao está ampliado ou com zoom caso a barra não apareça. Arraste para cima também se não for o suficiente, pode ser que em celulares, as vezes ela fica oculta embaixo do limite.
   Peço perdão, pois não resolvi ainda esse problema, pretendo resolver em breve.
-  Qualquer dúvida ou sugestão entre em contato. Ao terminar o terço, deixei os créditos e as fontes daonde obti algum conteúdo.`},
+  Qualquer dúvida ou sugestão entre em contato (renatolois209@gmail.com). Ao terminar o terço, deixei os créditos e as fontes daonde obti algum conteúdo.
+  Este site teve seu front-end (layout, CSS e parte do JavaScript) refeito com auxílio de Inteligência Artificial.
+  Os textos das orações, mistérios e referências NÃO foram gerados por IA — foram preservados do conteúdo original escolhido à mão e baseando-se na aba de referências.
+  O objetivo da reformulação foi melhorar o layout, a responsividade mobile e a legibilidade, mantendo o conteúdo intacto.`},
       "referencias": {
         titulo: "Referências",
         conteudo:
@@ -36,7 +39,9 @@ https://salvaimerainha.org.br/como-oferecer-o-terco/
 https://santuario.cancaonova.com/sem-categoria/santo-terco/
 
 música "Ave Maria" de:
-https://www.youtube.com/watch?v=2H5rusicEnc`},
+https://www.youtube.com/watch?v=2H5rusicEnc
+
+Se prefere rezar o terço com o áudio de alguém rezando junto, recomendo este site: https://www.a12.com/reze-no-santuario/terco-virtual`},
 
       "sinal da cruz": {
         titulo: "Sinal da Cruz",
@@ -152,7 +157,7 @@ Amém.
         "gozosos": {
           1: {
             "titulo": "A anunciação do Anjo à Virgem Maria.",
-            "conteudo": "No sexto mês, o anjo Gabriel foi enviado por Deus a uma cidade da Galiléia, chamada Nazaré,  a uma virgem desposada com um homem que se chamava José, da casa de Davi e o nome da virgem era Maria (Lc 1, 26-27)."
+            "conteudo": "No sexto mês, o anjo Gabriel foi enviado por Deus a uma cidade da Galiléia, chamada Nazaré, a uma virgem desposada com um homem que se chamava José, da casa de Davi e o nome da virgem era Maria (Lc 1, 26-27)."
           },
           2: {
             "titulo": "A visita de Maria à Santa Isabel.",
@@ -242,20 +247,21 @@ Amém.
   }
 }
 
-
-let misterioLabel = document.getElementById("misterio-label");
-let misterioNome = document.getElementById("misterio-nome");
+let misterioLabel       = document.getElementById("misterio-label");
+let misterioNome        = document.getElementById("misterio-nome");
 let misterioTituloLabel = document.getElementById("misterio-titulo-label");
-let contaLabel = document.getElementById("conta-label");
-let oracoesContainer = document.getElementById("oracoes-container");
-let pauseButton = document.getElementById("play-pause");
-let pauseIcon = document.getElementById("pause-icon");
-let music = new Audio('res/Schubert - Ave Maria.mp3');
+let contaLabel          = document.getElementById("conta-label");
+let oracoesContainer    = document.getElementById("oracoes-container");
+let pauseButton         = document.getElementById("play-pause");
+let pauseIcon           = document.getElementById("pause-icon");
+let music               = new Audio('res/ave-maria.webm');
+music.preload = "none";
+music.volume  = 0.3;
 
-let pecasTerco = document.getElementById("terco-track").children;
-atualIndex = 0;
+let pecasTerco   = document.getElementById("terco-track").children;
+let atualIndex   = 0;
 let tipoMisterio = "gozosos";
-let lang = "pt";
+let lang         = "pt";
 
 function trocarMisterio(nomeMisterio) {
   tipoMisterio = nomeMisterio;
@@ -266,46 +272,71 @@ function trocarMisterio(nomeMisterio) {
 function escreverTextoPecaAtual() {
   let numMisterio, pos;
   let textos;
-  if(atualIndex <= 4) {
+
+  if (atualIndex <= 4) {
     numMisterio = 0;
     pos = atualIndex;
-    if(atualIndex == 0) textos = [{titulo: "avisos"}, {titulo: "sinal da cruz"}, {titulo: "oferecimento do terco"}, {titulo: "credo"}];
-    else if(atualIndex == 1) textos = [{titulo: "pai nosso"}];
-    else if(atualIndex < 4) textos = [{titulo: "ave maria"}];
-    else if(atualIndex == 4) textos = [{titulo: "ave maria"}, {titulo: "gloria ao pai"}]
+
+    if (atualIndex == 0)
+      textos = [
+        { titulo: "sinal da cruz" },
+        { titulo: "oferecimento do terco" },
+        { titulo: "credo" }
+      ];
+    else if (atualIndex == 1)
+      textos = [{ titulo: "pai nosso" }];
+    else if (atualIndex < 4)
+      textos = [{ titulo: "ave maria" }];
+    else if (atualIndex == 4)
+      textos = [{ titulo: "ave maria" }, { titulo: "gloria ao pai" }];
+
   } else {
-    numMisterio = Math.floor( (atualIndex - 5) / 11) + 1;
+    numMisterio = Math.floor((atualIndex - 5) / 11) + 1;
     pos = (atualIndex - 5) % 11;
-    if (atualIndex == pecasTerco.length - 1) textos = [{titulo: "salve rainha"}, {titulo: "referencias"}];
-    else if(pos == 0) textos = [{titulo: "misterio", tipo: tipoMisterio, numero: numMisterio}, {titulo: "pai nosso"}];
-    else if (pos < 10) textos = [{titulo: "ave maria"}];
-    else textos = [{titulo: "ave maria"}, {titulo: "gloria ao pai"}, {titulo: "jaculatoria de fatima"}];
+
+    if (atualIndex == pecasTerco.length - 1)
+      textos = [{ titulo: "salve rainha" }];
+    else if (pos == 0)
+      textos = [
+        { titulo: "misterio", tipo: tipoMisterio, numero: numMisterio },
+        { titulo: "pai nosso" }
+      ];
+    else if (pos < 10)
+      textos = [{ titulo: "ave maria" }];
+    else
+      textos = [
+        { titulo: "ave maria" },
+        { titulo: "gloria ao pai" },
+        { titulo: "jaculatoria de fatima" }
+      ];
   }
 
   oracoesContainer.innerHTML = "";
 
   textos.forEach(e => {
     let tituloOracao, conteudoOracao;
-    if(e.titulo == "misterio") {
-      tituloOracao = textos_lang[lang].oracoes.misterios[e.tipo][e.numero].titulo;
+
+    if (e.titulo == "misterio") {
+      tituloOracao   = textos_lang[lang].oracoes.misterios[e.tipo][e.numero].titulo;
       conteudoOracao = textos_lang[lang].oracoes.misterios[e.tipo][e.numero].conteudo;
     } else {
-      tituloOracao = textos_lang[lang].oracoes[e.titulo].titulo;
+      tituloOracao   = textos_lang[lang].oracoes[e.titulo].titulo;
       conteudoOracao = textos_lang[lang].oracoes[e.titulo].conteudo;
     }
 
-    const novaOracao = document.createElement("div");
-    const novaOracaoTitulo = document.createElement("h2");
+    const novaOracao         = document.createElement("div");
+    const novaOracaoTitulo   = document.createElement("h2");
     const novaOracaoConteudo = document.createElement("pre");
-    novaOracaoTitulo.textContent = tituloOracao;
+
+    novaOracaoTitulo.textContent   = tituloOracao;
     novaOracaoConteudo.textContent = conteudoOracao;
 
-    novaOracao.classList.toggle("oracao-block")
+    novaOracao.classList.add("oracao-block");
 
     novaOracao.append(novaOracaoTitulo, novaOracaoConteudo);
     oracoesContainer.appendChild(novaOracao);
 
-    document.getElementById("oracoes-container").scrollTop = 0;
+    oracoesContainer.scrollTop = 0;
   });
 
   oracoesContainer.classList.add('fade-in');
@@ -313,36 +344,72 @@ function escreverTextoPecaAtual() {
     oracoesContainer.classList.remove('fade-in');
   }, 300);
 
-  // misterioLabel
-  if(numMisterio == 0 || atualIndex == pecasTerco.length - 1) {
+  if (numMisterio == 0 || atualIndex == pecasTerco.length - 1) {
     misterioLabel.innerHTML = "";
     misterioTituloLabel.innerHTML = "";
   } else {
     misterioLabel.innerHTML = textos_lang[lang].termos["misterio"] + " " + numMisterio;
-    misterioTituloLabel.innerHTML = textos_lang[lang].oracoes.misterios[tipoMisterio][numMisterio].titulo;
+    misterioTituloLabel.innerHTML =
+      textos_lang[lang].oracoes.misterios[tipoMisterio][numMisterio].titulo;
   }
 
-  // contaLabel
-  if(atualIndex == 0) contaLabel.innerHTML = textos_lang[lang].termos["cruz"];
-  else if (atualIndex == pecasTerco.length - 1) contaLabel.innerHTML = textos_lang[lang].termos["medalha"];
-  else if (atualIndex == 1) contaLabel.innerHTML = textos_lang[lang].termos["conta inicial"];
-  else if (atualIndex < 5) contaLabel.innerHTML = textos_lang[lang].termos["conta pequena"] + " " + (pos - 1);
-  else if (atualIndex == 5) contaLabel.innerHTML = textos_lang[lang].termos["conta grande"];
-  else if (pos <= 10 && pos != 0) contaLabel.innerHTML = textos_lang[lang].termos["conta pequena"] + " " + (pos);
-  else contaLabel.innerHTML = textos_lang[lang].termos["conta grande"];
-  
-  /*
-  let fadeBottomDiv = document.createElement("div");
-  fadeBottomDiv.id = "fade-bottom";
-  oracoesContainer.appendChild(fadeBottomDiv);
-  */
+  if (atualIndex == 0)
+    contaLabel.innerHTML = textos_lang[lang].termos["cruz"];
+  else if (atualIndex == pecasTerco.length - 1)
+    contaLabel.innerHTML = textos_lang[lang].termos["medalha"];
+  else if (atualIndex == 1)
+    contaLabel.innerHTML = textos_lang[lang].termos["conta inicial"];
+  else if (atualIndex < 5)
+    contaLabel.innerHTML = textos_lang[lang].termos["conta pequena"] + " " + (pos - 1);
+  else if (atualIndex == 5)
+    contaLabel.innerHTML = textos_lang[lang].termos["conta grande"];
+  else if (pos <= 10 && pos != 0)
+    contaLabel.innerHTML = textos_lang[lang].termos["conta pequena"] + " " + (pos);
+  else
+    contaLabel.innerHTML = textos_lang[lang].termos["conta grande"];
+}
+
+function ajustarPaddingTerco() {
+  const terco = document.querySelector('.terco');
+  if (!terco) return;
+
+  const isMobileHorizontal = window.matchMedia('(max-width: 767px)').matches;
+
+  if (isMobileHorizontal) {
+    const pad = terco.clientWidth / 2;
+    terco.style.paddingTop    = '';
+    terco.style.paddingBottom = '';
+    terco.style.paddingLeft   = pad + 'px';
+    terco.style.paddingRight  = pad + 'px';
+  } else {
+    const pad = terco.clientHeight / 2;
+    terco.style.paddingLeft   = '';
+    terco.style.paddingRight  = '';
+    terco.style.paddingTop    = pad + 'px';
+    terco.style.paddingBottom = pad + 'px';
+  }
 }
 
 function centralizarPecaAtual() {
-  let terco = document.querySelector('.terco');
-  let pecaAtual = terco.firstElementChild.children[atualIndex].firstChild;
-  terco.scrollTo({
-    top: pecaAtual.offsetTop - terco.clientHeight/2 + pecaAtual.offsetHeight, behavior: "smooth"});
+  const terco = document.querySelector('.terco');
+  const track = terco.firstElementChild;
+  const pecaAtual = track.children[atualIndex].firstChild;
+
+  const isMobileHorizontal = window.matchMedia('(max-width: 767px)').matches;
+
+  if (isMobileHorizontal) {
+    const targetLeft =
+      pecaAtual.offsetLeft
+      - (terco.clientWidth - pecaAtual.offsetWidth) / 2;
+
+    terco.scrollTo({ left: targetLeft, behavior: "smooth" });
+  } else {
+    const targetTop =
+      pecaAtual.offsetTop
+      - (terco.clientHeight - pecaAtual.offsetHeight) / 2;
+
+    terco.scrollTo({ top: targetTop, behavior: "smooth" });
+  }
 
   escreverTextoPecaAtual();
 }
@@ -369,10 +436,6 @@ function toggleDarkMode() {
   document.body.classList.toggle('dark');
 }
 
-function toggleDarkMode() {
-  document.querySelector('body').classList.toggle('dark');
-}
-
 function pauseToggle() {
   if (music.paused) {
     music.play();
@@ -383,10 +446,176 @@ function pauseToggle() {
   }
 }
 
+window.addEventListener('resize', () => {
+  ajustarPaddingTerco();
+  centralizarPecaAtual();
+});
+
+function toggleConfigPanel() {
+  document.getElementById("config-overlay").classList.toggle("aberto");
+}
+
+function fecharConfigPanel(event) {
+  if (event && event.target.id !== "config-overlay" && event.type === "click") {
+    return;
+  }
+  document.getElementById("config-overlay").classList.remove("aberto");
+}
+
+let fontScale = 1;
+const FONT_MIN = 0.7;
+const FONT_MAX = 1.8;
+const FONT_STEP = 0.1;
+
+function aplicarEscalaFonte() {
+  document.querySelectorAll(".oracao-block pre").forEach(el => {
+    el.style.fontSize = (1.05 * fontScale) + "rem";
+  });
+  document.getElementById("font-size-display").textContent =
+    Math.round(fontScale * 100) + "%";
+}
+
+function aumentarFonte() {
+  if (fontScale < FONT_MAX) {
+    fontScale = Math.min(FONT_MAX, fontScale + FONT_STEP);
+    aplicarEscalaFonte();
+    localStorage.setItem("tercoFontScale", fontScale);
+  }
+}
+
+function diminuirFonte() {
+  if (fontScale > FONT_MIN) {
+    fontScale = Math.max(FONT_MIN, fontScale - FONT_STEP);
+    aplicarEscalaFonte();
+    localStorage.setItem("tercoFontScale", fontScale);
+  }
+}
+
+const FONTES = {
+  macondo:         '"Macondo Swash Caps", cursive',
+  inter:           '"Inter", sans-serif',
+  roboto:          '"Roboto", sans-serif',
+  jakarta:         '"Plus Jakarta Sans", sans-serif',
+  dmsans:          '"DM Sans", sans-serif',
+  worksans:        '"Work Sans", sans-serif',
+  outfit:          '"Outfit", sans-serif',
+  spacegrotesque:  '"Space Grotesque", sans-serif',
+  syne:            '"Syne", sans-serif',
+  bricolage:       '"Bricolage Grotesque", sans-serif',
+  poppins:         '"Poppins", sans-serif',
+  montserrat:      '"Montserrat", sans-serif',
+  quicksand:       '"Quicksand", sans-serif',
+  raleway:         '"Raleway", sans-serif',
+  playfair:        '"Playfair Display", serif',
+  fraunces:        '"Fraunces", serif',
+  lora:            '"Lora", serif',
+  notoserif:       '"Noto Serif", serif',
+  cinzel:          '"Cinzel", serif',
+  jetbrainsmono:   '"JetBrains Mono", monospace'
+};
+
+function trocarFonteGeral(nome) {
+  const familia = FONTES[nome] || FONTES.macondo;
+  document.documentElement.style.setProperty("--font-geral", familia);
+  localStorage.setItem("tercoFonteGeral", nome);
+}
+
+function trocarFonteTexto(nome) {
+  const familia = FONTES[nome] || FONTES.inter;
+  document.documentElement.style.setProperty("--font-texto", familia);
+  localStorage.setItem("tercoFonteTexto", nome);
+}
+
+function restaurarPreferencias() {
+  const fonteGeralSalva = localStorage.getItem("tercoFonteGeral");
+  if (fonteGeralSalva) {
+    document.getElementById("font-geral-select").value = fonteGeralSalva;
+    trocarFonteGeral(fonteGeralSalva);
+  }
+
+  const fonteTextoSalva = localStorage.getItem("tercoFonteTexto");
+  if (fonteTextoSalva) {
+    document.getElementById("font-texto-select").value = fonteTextoSalva;
+    trocarFonteTexto(fonteTextoSalva);
+  }
+
+  const scaleSalva = parseFloat(localStorage.getItem("tercoFontScale"));
+  if (!isNaN(scaleSalva)) {
+    fontScale = Math.min(FONT_MAX, Math.max(FONT_MIN, scaleSalva));
+  }
+
+  aplicarEscalaFonte();
+}
+
+const _escreverOriginal = escreverTextoPecaAtual;
+escreverTextoPecaAtual = function() {
+  _escreverOriginal();
+  aplicarEscalaFonte();
+};
+
+function abrirPopupInicial() {
+  const avisosEl      = document.getElementById("popup-avisos-conteudo");
+  const referenciasEl = document.getElementById("popup-referencias-conteudo");
+
+  if (textos_lang && textos_lang[lang] && textos_lang[lang].oracoes) {
+    if (avisosEl && textos_lang[lang].oracoes["avisos"]) {
+      avisosEl.textContent = textos_lang[lang].oracoes["avisos"].conteudo;
+    }
+    if (referenciasEl && textos_lang[lang].oracoes["referencias"]) {
+      referenciasEl.textContent = textos_lang[lang].oracoes["referencias"].conteudo;
+    }
+  }
+
+  const check = document.getElementById("popup-nao-mostrar-check");
+  if (check) {
+    check.checked = localStorage.getItem("tercoPopupNaoMostrar") === "1";
+  }
+
+  document.getElementById("popup-inicial").classList.add("aberto");
+}
+
+function fecharPopupInicial() {
+  const check = document.getElementById("popup-nao-mostrar-check");
+
+  if (check) {
+    if (check.checked) {
+      localStorage.setItem("tercoPopupNaoMostrar", "1");
+    } else {
+      localStorage.removeItem("tercoPopupNaoMostrar");
+    }
+  }
+
+  document.getElementById("popup-inicial").classList.remove("aberto");
+}
+
+function trocarAbaPopup(aba, botaoClicado) {
+  document.querySelectorAll(".popup-tab").forEach(t => t.classList.remove("ativo"));
+  document.querySelectorAll(".popup-pane").forEach(p => p.classList.remove("ativo"));
+
+  botaoClicado.classList.add("ativo");
+  const pane = document.querySelector(`.popup-pane[data-aba="${aba}"]`);
+  if (pane) pane.classList.add("ativo");
+}
+
+function reabrirPopupInicial() {
+  document.getElementById("config-overlay").classList.remove("aberto");
+  abrirPopupInicial();
+}
+
+function verificarPopupInicial() {
+  const naoMostrar = localStorage.getItem("tercoPopupNaoMostrar");
+  if (!naoMostrar) {
+    abrirPopupInicial();
+  }
+}
+
 function main() {
   music.loop = true;
+  ajustarPaddingTerco();
   centralizarPecaAtual();
   trocarMisterio('gozosos');
+  restaurarPreferencias();
+  verificarPopupInicial();
 }
 
 main();

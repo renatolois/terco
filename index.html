@@ -1,150 +1,381 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ter&ccedil;o</title>
-    <link href="css/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="tailwind-css/minified/tailwind-minified.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <style>
-    </style>
-  </head>
-  <body class="flex flex-col dark pt-[4vh] w-full h-screen min-w-[400px]">
-    <div class="main-container flex items-center relative">
-      <div class="terco overflow-y-hidden h-screen w-[20vw] z-100">  <!-- terço -->
-        <div class="flex flex-col gap-4 items-center w-full" id="terco-track">  <!-- track -->
-          <div class="group item-container"><div class="item cruz peca-atual">              <!-- Credo -->
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 673.000000 1280.000000" preserveAspectRatio="xMidYMid meet">
-              <metadata>
-              Created by potrace 1.15, written by Peter Selinger 2001-2017
-              </metadata>
-              <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="var(--cruz-stroke)" stroke-width="350">
-              <path d="M3145 11770 c-282 -25 -528 -91 -749 -202 -127 -63 -179 -99 -205 -142 -49 -78 -23 -118 126 -196 184 -94 302 -207 386 -370 100 -192 110 -262 110 -786 -1 -463 -5 -508 -57 -560 -53 -53 -83 -56 -506 -58 -385 -1 -491 5 -651 39 -259 54 -457 225 -574 497 -63 145 -100 168 -170 106 -46 -40 -80 -90 -143 -208 -156 -294 -232 -680 -219 -1105 9 -268 46 -485 124 -709 61 -176 180 -391 241 -434 68 -49 110 -20 163 111 88 214 243 376 437 458 88 36 235 66 402 79 155 13 751 4 815 -12 57 -14 101 -51 120 -101 15 -39 16 -249 12 -2637 -3 -2455 -4 -2599 -21 -2665 -66 -256 -234 -451 -513 -594 -135 -70 -161 -113 -96 -157 18 -12 87 -40 155 -63 183 -63 290 -128 439 -268 198 -186 353 -418 495 -741 62 -143 89 -182 127 -182 38 0 64 39 126 186 69 165 87 201 158 317 229 369 482 591 801 701 135 47 162 63 162 97 0 34 -38 65 -179 143 -283 157 -418 334 -477 627 -15 77 -16 286 -14 2616 1 1393 5 2557 9 2587 8 61 29 97 68 123 39 26 530 41 798 25 393 -24 553 -77 722 -243 83 -81 133 -155 194 -285 53 -114 77 -144 114 -144 97 0 289 357 363 675 48 206 71 535 53 760 -27 331 -91 578 -217 828 -146 289 -227 320 -309 117 -94 -234 -276 -416 -491 -490 -143 -50 -167 -52 -598 -57 -438 -5 -543 2 -605 38 -84 49 -92 83 -101 404 -15 506 16 777 113 975 58 120 197 259 349 348 126 74 158 107 158 163 0 62 -57 116 -194 183 -193 96 -409 158 -658 191 -139 19 -459 27 -593 15z"/>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Terço</title>
+
+  <!-- Font Awesome (ícones) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Pré-conexão otimizada com o Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 1. Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- 2. Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- 3. Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- 4. DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <!-- 5. Work Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- 6. Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- 7. Space Grotesque -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesque:wght@400;600&display=swap" rel="stylesheet">
+  <!-- 8. Syne -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700&display=swap" rel="stylesheet">
+  <!-- 9. Bricolage Grotesque -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;700&display=swap" rel="stylesheet">
+  <!-- 10. Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- 11. Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- 12. Quicksand -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <!-- 13. Raleway -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <!-- 14. Playfair Display -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- 15. Fraunces -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+  <!-- 16. Lora -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- 17. Noto Serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- 18. Cinzel -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+  <!-- 19. JetBrains Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS único (reset embutido) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark">
+
+  <!-- ============================================================
+       CONTAINER PRINCIPAL
+       ============================================================ -->
+  <div class="main-container">
+
+    <!-- ==========================================================
+         TERÇO
+         ========================================================== -->
+    <div class="terco">
+      <div class="terco-track" id="terco-track">
+
+        <!-- CRUZ (Credo) -->
+        <div class="group item-container">
+          <div class="item cruz peca-atual">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 673.000000 1280.000000"
+                 preserveAspectRatio="xMidYMid meet">
+              <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+                 fill="currentColor" stroke="var(--cruz-stroke)" stroke-width="350">
+                <path d="M3145 11770 c-282 -25 -528 -91 -749 -202 -127 -63 -179 -99 -205 -142 -49 -78 -23 -118 126 -196 184 -94 302 -207 386 -370 100 -192 110 -262 110 -786 -1 -463 -5 -508 -57 -560 -53 -53 -83 -56 -506 -58 -385 -1 -491 5 -651 39 -259 54 -457 225 -574 497 -63 145 -100 168 -170 106 -46 -40 -80 -90 -143 -208 -156 -294 -232 -680 -219 -1105 9 -268 46 -485 124 -709 61 -176 180 -391 241 -434 68 -49 110 -20 163 111 88 214 243 376 437 458 88 36 235 66 402 79 155 13 751 4 815 -12 57 -14 101 -51 120 -101 15 -39 16 -249 12 -2637 -3 -2455 -4 -2599 -21 -2665 -66 -256 -234 -451 -513 -594 -135 -70 -161 -113 -96 -157 18 -12 87 -40 155 -63 183 -63 290 -128 439 -268 198 -186 353 -418 495 -741 62 -143 89 -182 127 -182 38 0 64 39 126 186 69 165 87 201 158 317 229 369 482 591 801 701 135 47 162 63 162 97 0 34 -38 65 -179 143 -283 157 -418 334 -477 627 -15 77 -16 286 -14 2616 1 1393 5 2557 9 2587 8 61 29 97 68 123 39 26 530 41 798 25 393 -24 553 -77 722 -243 83 -81 133 -155 194 -285 53 -114 77 -144 114 -144 97 0 289 357 363 675 48 206 71 535 53 760 -27 331 -91 578 -217 828 -146 289 -227 320 -309 117 -94 -234 -276 -416 -491 -490 -143 -50 -167 -52 -598 -57 -438 -5 -543 2 -605 38 -84 49 -92 83 -101 404 -15 506 16 777 113 975 58 120 197 259 349 348 126 74 158 107 158 163 0 62 -57 116 -194 183 -193 96 -409 158 -658 191 -139 19 -459 27 -593 15z"/>
               </g>
             </svg>
-          </div></div>
-          <div class="group item-container"><div class="item conta conta-g"></div></div>    <!-- Pai Nosso -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-g"></div></div>    <!-- Pai Nosso --> <!-- 1 -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-g"></div></div>    <!-- Pai Nosso --> <!-- 2 -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-g"></div></div>    <!-- Pai Nosso --> <!-- 3 -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-g"></div></div>    <!-- Pai Nosso --> <!-- 4 -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-g"></div></div>    <!-- Pai Nosso --> <!-- 5 -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta conta-p"></div></div>    <!-- Ave Maria -->
-          <div class="group item-container"><div class="item conta medalha">                <!-- Medalha: Salve Rainha -->
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="1280.000000pt" height="1048.000000pt" viewBox="0 0 1280.000000 1048.000000" preserveAspectRatio="xMidYMid meet">
-            <metadata> Created by potrace 1.15, written by Peter Selinger 2001-2017 </metadata>
-              <g transform="translate(0.000000,1048.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="var(--cruz-stroke)" stroke-width="350">
+          </div>
+        </div>
+
+        <!-- PAI NOSSO -->
+        <div class="group item-container"><div class="item conta conta-g"></div></div>
+        <!-- 3 AVE MARIAS -->
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+
+        <!-- ============ MISTÉRIO 1 ============ -->
+        <div class="group item-container"><div class="item conta conta-g"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+
+        <!-- ============ MISTÉRIO 2 ============ -->
+        <div class="group item-container"><div class="item conta conta-g"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+
+        <!-- ============ MISTÉRIO 3 ============ -->
+        <div class="group item-container"><div class="item conta conta-g"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+
+        <!-- ============ MISTÉRIO 4 ============ -->
+        <div class="group item-container"><div class="item conta conta-g"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+
+        <!-- ============ MISTÉRIO 5 ============ -->
+        <div class="group item-container"><div class="item conta conta-g"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+        <div class="group item-container"><div class="item conta conta-p"></div></div>
+
+        <!-- MEDALHA -->
+        <div class="group item-container">
+          <div class="item medalha">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                 width="1280.000000pt" height="1048.000000pt"
+                 viewBox="0 0 1280.000000 1048.000000"
+                 preserveAspectRatio="xMidYMid meet">
+              <g transform="translate(0.000000,1048.000000) scale(0.100000,-0.100000)"
+                 fill="currentColor" stroke="var(--cruz-stroke)" stroke-width="350">
                 <path d="M2016 10459 c-34 -26 -34 -63 -1 -177 33 -117 57 -271 105 -676 63 -537 93 -727 161 -1029 104 -463 240 -829 498 -1347 308 -615 612 -1068 801 -1188 30 -20 72 -55 93 -79 21 -24 44 -43 51 -43 7 0 23 -12 37 -26 13 -14 38 -33 54 -41 17 -9 75 -59 130 -112 115 -111 137 -127 540 -389 165 -107 317 -208 338 -225 37 -29 37 -30 20 -49 -22 -24 -245 -134 -438 -215 l-140 -59 -415 7 c-505 8 -623 22 -1005 115 -342 83 -433 123 -1270 564 -668 351 -775 406 -822 420 -38 12 -45 11 -77 -10 -68 -41 -239 -293 -287 -419 -11 -30 -24 -85 -28 -121 -8 -61 2 -339 14 -387 5 -20 1 -23 -22 -23 -77 0 -233 -138 -288 -255 -51 -108 -60 -161 -59 -335 1 -258 40 -419 143 -585 27 -44 70 -100 95 -125 25 -24 46 -48 46 -53 0 -5 -20 -31 -45 -59 -74 -83 -136 -170 -166 -233 -38 -79 -53 -237 -38 -398 9 -98 15 -122 49 -194 74 -156 141 -241 318 -403 55 -50 103 -98 106 -105 3 -8 1 -86 -4 -172 -13 -221 -3 -309 46 -414 101 -216 246 -329 604 -470 l145 -57 26 -79 c15 -43 41 -109 59 -148 17 -38 47 -112 66 -164 49 -135 87 -195 183 -292 211 -210 651 -427 823 -405 172 23 204 69 675 951 288 539 376 695 500 882 264 403 453 559 728 604 129 21 480 16 654 -9 80 -11 148 -19 153 -16 4 3 56 -16 116 -40 197 -81 992 -321 1261 -380 584 -129 1172 -113 1738 50 297 84 579 212 809 366 176 117 277 202 434 364 215 221 359 427 560 803 254 474 419 908 590 1548 175 654 301 1000 445 1224 130 202 354 332 659 384 140 23 276 21 536 -9 221 -26 432 -34 458 -18 7 5 15 25 19 45 4 28 0 46 -20 80 -32 54 -50 70 -257 227 -287 216 -370 311 -586 665 -113 186 -185 256 -334 328 -172 83 -320 124 -525 147 -248 27 -404 1 -615 -105 -183 -92 -320 -198 -568 -438 -192 -186 -450 -418 -599 -538 -106 -86 -401 -266 -486 -298 -79 -29 -223 -51 -333 -51 -156 0 -255 35 -500 176 -283 162 -475 328 -600 515 -49 75 -89 158 -211 444 -170 399 -280 571 -523 815 -159 160 -297 246 -612 381 -367 158 -778 295 -1603 539 -1401 413 -1452 431 -1935 665 -381 185 -419 197 -474 154z"/>
               </g>
-            </svg> 
-          </div></div>
+            </svg>
+          </div>
         </div>
-      </div>
-      <div class="oracao h-full flex-1 flex flex-col text-sm">
-        <div id="topbar =" class="w-full flex justify-between gap-4 px-12 py-4 shrink-0">
-          <div id="misterio-label"></div>
-          <div id="misterio-titulo-label" class="font-bold"></div>
-          <div id="conta-label"></div>
-        </div>
-        <div id="oracoes-container">
-        </div>
-        <!--
-        <span id="fade-bottom"></span>
-        -->
+
       </div>
     </div>
-    <div class="control-panel flex items-center gap-8 overflow-x-scroll max-w-full px-4 py-2 flex-nowrap justify-start md:justify-center">
-      <div class="flex justify-center items-center gap-4">
-        <button type="button" id="play-pause">
-          <i id="pause-icon" class="fa-solid fa-music transform hover:scale-115 duration-300 text-[1.8rem]" onclick="pauseToggle()"></i>
-        </button>
-        <button type="button" onclick="pecaAnterior();">
-          <i class="fa-solid fa-circle-left transform hover:scale-115 duration-300 text-[1.8rem]"></i>
-        </button>
-        <button type="button" onclick="pecaSeguinte();">
-          <i class="fa-solid fa-circle-right transform hover:scale-115 duration-300 text-[1.8rem]"></i>
-        </button>
+
+    <!-- ==========================================================
+         BLOCO RETANGULAR FIXO (topbar + orações)
+         ========================================================== -->
+    <div class="oracao">
+
+      <div id="topbar">
+        <div id="misterio-label"></div>
+        <div id="misterio-titulo-label"></div>
+        <div id="conta-label"></div>
       </div>
 
-      <div>
-        <p class="text-white" id="misterio-nome"></p>
-      </div>
+      <div id="oracoes-container"></div>
 
-      <button type="button" onclick="trocarMisterio('gozosos');">
-        <i class="fa-solid fa-face-smile transform hover:scale-115 duration-300 text-[1.8rem]"></i>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       BARRA INFERIOR FIXA
+       ============================================================ -->
+  <div class="control-panel">
+
+    <div class="control-group">
+      <button type="button" id="play-pause" onclick="pauseToggle()">
+        <i id="pause-icon" class="fa-solid fa-music"></i>
       </button>
 
-      <button type="button" onclick="trocarMisterio('luminosos');">
-        <i class="fa-solid fa-sun transform hover:scale-115 duration-300 text-[1.8rem]"></i>
+      <button type="button" onclick="pecaAnterior();">
+        <i class="fa-solid fa-circle-left"></i>
       </button>
 
-      <button type="button" onclick="trocarMisterio('dolorosos');">
-        <i class="fa-solid fa-heart-crack transform hover:scale-115 duration-300 text-[1.8rem]"></i>
+      <button type="button" onclick="pecaSeguinte();">
+        <i class="fa-solid fa-circle-right"></i>
       </button>
 
-      <button type="button" onclick="trocarMisterio('gloriosos');">
-        <i class="fa-solid fa-crown transform hover:scale-115 duration-300 text-[1.8rem]"></i>
-      </button>
-
-
-      <button type="button" onclick="toggleDarkMode();">
-        <i class="fa-solid fa-circle-half-stroke transform hover:scale-115 duration-300 text-[1.8rem]"></i>
+      <button type="button" id="config-btn" onclick="toggleConfigPanel()" aria-label="Configurações">
+        <i class="fa-solid fa-gear"></i>
       </button>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <p id="misterio-nome"></p>
+
+    <button type="button" onclick="trocarMisterio('gozosos');">
+      <i class="fa-solid fa-face-smile"></i>
+    </button>
+
+    <button type="button" onclick="trocarMisterio('luminosos');">
+      <i class="fa-solid fa-sun"></i>
+    </button>
+
+    <button type="button" onclick="trocarMisterio('dolorosos');">
+      <i class="fa-solid fa-heart-crack"></i>
+    </button>
+
+    <button type="button" onclick="trocarMisterio('gloriosos');">
+      <i class="fa-solid fa-crown"></i>
+    </button>
+
+    <button type="button" onclick="toggleDarkMode();">
+      <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
+
+  </div>
+
+  <!-- ============================================================
+       PAINEL DE CONFIGURAÇÕES
+       ============================================================ -->
+  <div id="config-overlay" onclick="fecharConfigPanel(event)">
+    <div id="config-panel" onclick="event.stopPropagation()">
+
+      <div class="config-header">
+        <h2>Configurações</h2>
+        <button type="button" onclick="fecharConfigPanel()" aria-label="Fechar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="config-section">
+        <label>Tamanho da fonte</label>
+        <div class="config-row">
+          <button type="button" onclick="diminuirFonte()" aria-label="Diminuir fonte">
+            <i class="fa-solid fa-minus"></i>
+          </button>
+          <span id="font-size-display">100%</span>
+          <button type="button" onclick="aumentarFonte()" aria-label="Aumentar fonte">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="config-section">
+        <label>Fonte geral (títulos, menus)</label>
+        <select id="font-geral-select" onchange="trocarFonteGeral(this.value)">
+          <option value="macondo">Macondo Swash Caps (padrão)</option>
+          <option value="inter">Inter</option>
+          <option value="roboto">Roboto</option>
+          <option value="jakarta">Plus Jakarta Sans</option>
+          <option value="dmsans">DM Sans</option>
+          <option value="worksans">Work Sans</option>
+          <option value="outfit">Outfit</option>
+          <option value="spacegrotesque">Space Grotesque</option>
+          <option value="syne">Syne</option>
+          <option value="bricolage">Bricolage Grotesque</option>
+          <option value="poppins">Poppins</option>
+          <option value="montserrat">Montserrat</option>
+          <option value="quicksand">Quicksand</option>
+          <option value="raleway">Raleway</option>
+          <option value="playfair">Playfair Display</option>
+          <option value="fraunces">Fraunces</option>
+          <option value="lora">Lora</option>
+          <option value="notoserif">Noto Serif</option>
+          <option value="cinzel">Cinzel</option>
+          <option value="jetbrainsmono">JetBrains Mono</option>
+        </select>
+      </div>
+
+      <div class="config-section">
+        <label>Fonte do texto das orações</label>
+        <select id="font-texto-select" onchange="trocarFonteTexto(this.value)">
+          <option value="inter">Inter (padrão)</option>
+          <option value="macondo">Macondo Swash Caps</option>
+          <option value="roboto">Roboto</option>
+          <option value="jakarta">Plus Jakarta Sans</option>
+          <option value="dmsans">DM Sans</option>
+          <option value="worksans">Work Sans</option>
+          <option value="outfit">Outfit</option>
+          <option value="spacegrotesque">Space Grotesque</option>
+          <option value="syne">Syne</option>
+          <option value="bricolage">Bricolage Grotesque</option>
+          <option value="poppins">Poppins</option>
+          <option value="montserrat">Montserrat</option>
+          <option value="quicksand">Quicksand</option>
+          <option value="raleway">Raleway</option>
+          <option value="playfair">Playfair Display</option>
+          <option value="fraunces">Fraunces</option>
+          <option value="lora">Lora</option>
+          <option value="notoserif">Noto Serif</option>
+          <option value="cinzel">Cinzel</option>
+          <option value="jetbrainsmono">JetBrains Mono</option>
+        </select>
+      </div>
+
+      <div class="config-section">
+        <label>Informações</label>
+        <button type="button" class="config-btn-info" onclick="reabrirPopupInicial()">
+          <i class="fa-solid fa-circle-info"></i> Avisos e referências
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       POPUP INICIAL (avisos + referências)
+       O conteúdo vem de textos_lang — não é duplicado aqui.
+       ============================================================ -->
+  <div id="popup-inicial" class="popup-overlay">
+    <div class="popup-box" onclick="event.stopPropagation()">
+
+      <div class="popup-header">
+        <h2>Bem-vindo ao Terço Digital</h2>
+        <button type="button" onclick="fecharPopupInicial()" aria-label="Fechar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Abas -->
+      <div class="popup-tabs">
+        <button type="button" class="popup-tab ativo" onclick="trocarAbaPopup('avisos', this)">
+          <i class="fa-solid fa-circle-info"></i> Avisos
+        </button>
+        <button type="button" class="popup-tab" onclick="trocarAbaPopup('referencias', this)">
+          <i class="fa-solid fa-book"></i> Referências
+        </button>
+      </div>
+
+      <!-- Conteúdo das abas (preenchido via JS com textos_lang) -->
+      <div class="popup-content">
+
+        <div class="popup-pane ativo" data-aba="avisos">
+          <pre id="popup-avisos-conteudo"></pre>
+        </div>
+
+        <div class="popup-pane" data-aba="referencias">
+          <pre id="popup-referencias-conteudo"></pre>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="popup-footer">
+        <label class="popup-nao-mostrar">
+          <input type="checkbox" id="popup-nao-mostrar-check">
+          Não mostrar novamente
+        </label>
+        <button type="button" class="popup-btn-fechar" onclick="fecharPopupInicial()">
+          Entendi
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
